@@ -1,6 +1,6 @@
 import { http, createConfig } from 'wagmi'
 import { mainnet, polygon, sepolia } from 'wagmi/chains'
-import { injected, metaMask, walletConnect } from 'wagmi/connectors'
+import { injected, walletConnect } from 'wagmi/connectors'
 
 // WalletConnect project ID - you'll need to get this from https://cloud.walletconnect.com/
 const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID || 'your-project-id-here'
@@ -9,8 +9,7 @@ export const config = createConfig({
   chains: [mainnet, polygon, sepolia],
   connectors: [
     injected(),
-    metaMask(),
-    walletConnect({ 
+    walletConnect({
       projectId,
       metadata: {
         name: 'SeiSwift',
